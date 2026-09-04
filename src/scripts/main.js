@@ -62,7 +62,11 @@ function updateDOM() {
 }
 
 document.addEventListener('keydown', (e) => {
-  if (game.getStatus() === 'idle') {
+  if (
+    game.getStatus() === 'idle' ||
+    game.getStatus() === 'win' ||
+    game.getStatus() === 'lose'
+  ) {
     return;
   }
 
