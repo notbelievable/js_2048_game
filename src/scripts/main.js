@@ -8,7 +8,7 @@ const game = new Game();
 const mesStart = document.querySelector('.message-start');
 const butStart = document.querySelector('.start');
 
-butStart.addEventListener('click', (e) => {
+butStart.addEventListener('click', () => {
   if (butStart.classList.contains('start')) {
     game.start();
     mesStart.classList.add('hidden');

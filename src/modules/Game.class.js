@@ -89,6 +89,14 @@ class Game {
     if (beforeMove !== JSON.stringify(this.board)) {
       this.addRandomTile();
     }
+
+    const flatBoard = this.board.flat();
+
+    if (flatBoard.includes(2048)) {
+      this.status = 'win';
+    } else if (!flatBoard.includes(0)) {
+      this.status = 'lose';
+    }
   }
 
   rotate() {
@@ -118,6 +126,14 @@ class Game {
     if (beforeMove !== JSON.stringify(this.board)) {
       this.addRandomTile();
     }
+
+    const flatBoard = this.board.flat();
+
+    if (flatBoard.includes(2048)) {
+      this.status = 'win';
+    } else if (!flatBoard.includes(0)) {
+      this.status = 'lose';
+    }
   }
 
   moveDown() {
@@ -131,6 +147,14 @@ class Game {
 
     if (beforeMove !== JSON.stringify(this.board)) {
       this.addRandomTile();
+    }
+
+    const flatBoard = this.board.flat();
+
+    if (flatBoard.includes(2048)) {
+      this.status = 'win';
+    } else if (!flatBoard.includes(0)) {
+      this.status = 'lose';
     }
   }
 
@@ -204,8 +228,9 @@ class Game {
 
     const randomInd = Math.floor(Math.random() * nums.length);
     const randomCell = nums[randomInd];
+    const value = Math.random() < 0.1 ? 4 : 2;
 
-    this.board[randomCell.row][randomCell.cell] = 2;
+    this.board[randomCell.row][randomCell.cell] = value;
   }
 }
 
